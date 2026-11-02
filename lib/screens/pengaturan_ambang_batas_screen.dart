@@ -31,7 +31,7 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
       title: 'Fase Vegetatif',
       ageRange: '1 - 30 HST',
       description: 'Pembentukan daun & batang awal',
-      conditions: 'Tanah 60-75%, Suhu 24-28°C',
+      conditions: 'Tanah: 60-75%',
       defaultSoilMin: 60,
       defaultSoilMax: 75,
       defaultTempMin: 24,
@@ -42,7 +42,7 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
       title: 'Fase Generatif / Berbunga',
       ageRange: '> 31 HST',
       description: 'Pembungaan aktif & pembentukan buah',
-      conditions: 'Tanah 65-80%, Suhu 25-30°C',
+      conditions: 'Tanah: 65-80%',
       defaultSoilMin: 65,
       defaultSoilMax: 80,
       defaultTempMin: 25,
@@ -53,7 +53,7 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
       title: 'Pematangan Buah & Panen',
       ageRange: '> 80 HST',
       description: 'Pematangan warna cabai & reduksi lembab',
-      conditions: 'Tanah 55-70%, Suhu 26-32°C',
+      conditions: 'Tanah: 55-70%',
       defaultSoilMin: 55,
       defaultSoilMax: 70,
       defaultTempMin: 26,
@@ -195,16 +195,19 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Preset Fase Budidaya',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                  color: AppTheme.textDark,
+              const Expanded(
+                child: Text(
+                  'Preset Fase Budidaya',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: AppTheme.textDark,
+                  ),
                 ),
               ),
+              const SizedBox(width: 8),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                 decoration: BoxDecoration(
@@ -277,21 +280,31 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
                         children: [
                           Row(
                             children: [
-                              Text(
-                                preset.title,
-                                style: const TextStyle(
-                                  fontSize: 12.5,
-                                  fontWeight: FontWeight.w700,
-                                  color: AppTheme.textDark,
+                              Expanded(
+                                child: Text(
+                                  '${preset.title} • ${preset.ageRange}',
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                    fontSize: 12.5,
+                                    fontWeight: FontWeight.w700,
+                                    color: AppTheme.textDark,
+                                  ),
                                 ),
                               ),
                               const SizedBox(width: 6),
-                              Text(
-                                '• ${preset.ageRange}',
-                                style: const TextStyle(
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w600,
-                                  color: AppTheme.textMuted,
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
+                                decoration: BoxDecoration(
+                                  color: AppTheme.statusOptimalBg,
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child: Text(
+                                  preset.conditions,
+                                  style: const TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w700,
+                                    color: AppTheme.primaryGreen,
+                                  ),
                                 ),
                               ),
                             ],
@@ -306,16 +319,6 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
                           ),
                         ],
                       ),
-                    ),
-                    const SizedBox(width: 6),
-                    Text(
-                      preset.conditions,
-                      style: const TextStyle(
-                        fontSize: 10.5,
-                        fontWeight: FontWeight.w600,
-                        color: AppTheme.primaryGreen,
-                      ),
-                      textAlign: TextAlign.right,
                     ),
                   ],
                 ),
@@ -593,25 +596,29 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
     required VoidCallback onIncrement,
   }) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              label,
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w700,
-                color: AppTheme.textDark,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                label,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                  color: AppTheme.textDark,
+                ),
               ),
-            ),
-            Text(
-              sublabel,
-              style: const TextStyle(fontSize: 10.5, color: AppTheme.textMuted),
-            ),
-          ],
+              Text(
+                sublabel,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontSize: 10.5, color: AppTheme.textMuted),
+              ),
+            ],
+          ),
         ),
+        const SizedBox(width: 8),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
           decoration: BoxDecoration(
