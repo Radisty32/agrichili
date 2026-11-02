@@ -118,13 +118,9 @@ class _BerandaScreenState extends State<BerandaScreen> {
 
             // 2. Zona Monitoring Aktif Card
             _buildZoneSelectorCard(),
-            const SizedBox(height: 12),
+            const SizedBox(height: 16),
 
-            // 3. Fase Vegetatif & AI Agronomist Card
-            _buildAgronomicCard(),
-            const SizedBox(height: 18),
-
-            // 4. Section: Telemetri Real-Time Lahan
+            // 3. Section: Telemetri Real-Time Lahan
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -393,117 +389,6 @@ class _BerandaScreenState extends State<BerandaScreen> {
                 size: 22,
               ),
             ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              _buildWeatherChip(Icons.wb_cloudy_outlined, '28°C, Berawan'),
-              const SizedBox(width: 8),
-              _buildWeatherChip(Icons.water_drop_outlined, 'RH 72%'),
-              const SizedBox(width: 8),
-              _buildWeatherChip(Icons.light_mode_outlined, '14.2 klux'),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildWeatherChip(IconData icon, String label) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color: const Color(0xFFF8FAFC),
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: const Color(0xFFE2E8F0)),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 12, color: AppTheme.textSecondary),
-          const SizedBox(width: 4),
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 11,
-              fontWeight: FontWeight.w600,
-              color: AppTheme.textBody,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildAgronomicCard() {
-    return AgriCard(
-      padding: const EdgeInsets.all(14),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                'Fase Vegetatif (HST 22)',
-                style: TextStyle(
-                  fontSize: 14.5,
-                  fontWeight: FontWeight.w700,
-                  color: AppTheme.textDark,
-                ),
-              ),
-              const StatusBadge(
-                text: 'Subur',
-                type: StatusType.optimal,
-                showDot: true,
-              ),
-            ],
-          ),
-          const SizedBox(height: 2),
-          const Text(
-            'Varietas Cabai Rawit Merah',
-            style: TextStyle(
-              fontSize: 12,
-              color: AppTheme.textSecondary,
-            ),
-          ),
-          const SizedBox(height: 10),
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: AppTheme.mintBackground,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: const Color(0xFFBBE5CC)),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: const [
-                    Icon(Icons.auto_awesome, size: 13, color: AppTheme.primaryGreen),
-                    SizedBox(width: 5),
-                    Text(
-                      'REKOMENDASI AGRONOMIS AI',
-                      style: TextStyle(
-                        fontSize: 10.5,
-                        fontWeight: FontWeight.w800,
-                        color: AppTheme.primaryGreen,
-                        letterSpacing: 0.6,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                const Text(
-                  'Kondisi tanah ideal. Penyiraman terjadwal berikutnya pukul 16:30 WIB (Durasi 4 menit) untuk menjaga kelembaban optimal zona perakaran cabai rawit.',
-                  style: TextStyle(
-                    fontSize: 11.5,
-                    color: AppTheme.textBody,
-                    height: 1.4,
-                  ),
-                ),
-              ],
-            ),
           ),
         ],
       ),
