@@ -164,11 +164,7 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 1. Balitbangtan Standard Physiological Banner
-            _buildStandardBanner(),
-            const SizedBox(height: 14),
-
-            // 2. Preset Fase Budidaya Card
+            // 1. Preset Fase Budidaya Card
             _buildPresetSection(),
             const SizedBox(height: 14),
 
@@ -188,57 +184,6 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
             _buildBottomSaveButton(),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildStandardBanner() {
-    return AgriCard(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: AppTheme.mintBackground,
-              shape: BoxShape.circle,
-            ),
-            child: const Icon(
-              Icons.eco,
-              color: AppTheme.primaryGreen,
-              size: 20,
-            ),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'Standar Fisiologis Cabai Balitbangtan',
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
-                    color: AppTheme.textDark,
-                  ),
-                ),
-                SizedBox(height: 2),
-                Text(
-                  'Ambang batas diadaptasi otomatis sesuai panduan agrikultur.',
-                  style: TextStyle(
-                    fontSize: 11,
-                    color: AppTheme.textSecondary,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(width: 6),
-          const StatusBadge(
-            text: 'Aktif',
-            type: StatusType.optimal,
-          ),
-        ],
       ),
     );
   }
