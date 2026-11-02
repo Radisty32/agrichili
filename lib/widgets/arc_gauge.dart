@@ -173,3 +173,4 @@ class _ArcGaugePainter extends CustomPainter {
     return oldDelegate.value != value;
   }
 }
+

@@ -112,3 +112,4 @@ class _MultiLineTrendPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
+

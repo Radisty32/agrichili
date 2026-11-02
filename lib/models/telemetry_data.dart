@@ -60,3 +60,4 @@ class CultivationPreset {
     required this.defaultTempMax,
   });
 }
+

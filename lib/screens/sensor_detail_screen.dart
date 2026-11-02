@@ -522,3 +522,4 @@ class _SensorDetailScreenState extends State<SensorDetailScreen> {
     );
   }
 }
+
