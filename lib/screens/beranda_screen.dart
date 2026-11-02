@@ -68,13 +68,16 @@ class _BerandaScreenState extends State<BerandaScreen> {
               ),
             ),
             const SizedBox(width: 8),
-            const Text(
-              'AgriChili Monitor',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w800,
-                color: AppTheme.primaryDark,
-                letterSpacing: -0.3,
+            const Flexible(
+              child: Text(
+                'AgriChili Monitor',
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                  color: AppTheme.primaryDark,
+                  letterSpacing: -0.3,
+                ),
               ),
             ),
           ],
@@ -122,17 +125,20 @@ class _BerandaScreenState extends State<BerandaScreen> {
 
             // 3. Section: Telemetri Real-Time Lahan
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'TELEMETRI REAL-TIME LAHAN',
-                  style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w700,
-                    color: AppTheme.textSecondary,
-                    letterSpacing: 0.8,
+                const Expanded(
+                  child: Text(
+                    'TELEMETRI REAL-TIME LAHAN',
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w700,
+                      color: AppTheme.textSecondary,
+                      letterSpacing: 0.8,
+                    ),
                   ),
                 ),
+                const SizedBox(width: 8),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                   decoration: BoxDecoration(
@@ -141,11 +147,12 @@ class _BerandaScreenState extends State<BerandaScreen> {
                     border: Border.all(color: AppTheme.cardBorder),
                   ),
                   child: const Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(Icons.timer_outlined, size: 12, color: AppTheme.textMuted),
                       SizedBox(width: 4),
                       Text(
-                        'Frekuensi: 10 Detik',
+                        '10 Detik',
                         style: TextStyle(
                           fontSize: 10.5,
                           fontWeight: FontWeight.w600,
@@ -247,52 +254,60 @@ class _BerandaScreenState extends State<BerandaScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  Container(
-                    width: 8,
-                    height: 8,
-                    decoration: const BoxDecoration(
-                      color: AppTheme.accentGreen,
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  const Text(
-                    'ESP32-Chili-A1',
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700,
-                      color: AppTheme.textDark,
-                    ),
-                  ),
-                  const SizedBox(width: 6),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1.5),
-                    decoration: BoxDecoration(
-                      color: AppTheme.statusOptimalBg,
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    child: const Text(
-                      'ONLINE',
-                      style: TextStyle(
-                        fontSize: 9.5,
-                        fontWeight: FontWeight.w800,
-                        color: AppTheme.statusOptimalText,
-                        letterSpacing: 0.5,
+              Flexible(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      width: 8,
+                      height: 8,
+                      decoration: const BoxDecoration(
+                        color: AppTheme.accentGreen,
+                        shape: BoxShape.circle,
                       ),
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 6),
+                    const Flexible(
+                      child: Text(
+                        'ESP32-Chili-A1',
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 12.5,
+                          fontWeight: FontWeight.w700,
+                          color: AppTheme.textDark,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
+                      decoration: BoxDecoration(
+                        color: AppTheme.statusOptimalBg,
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      child: const Text(
+                        'ONLINE',
+                        style: TextStyle(
+                          fontSize: 9,
+                          fontWeight: FontWeight.w800,
+                          color: AppTheme.statusOptimalText,
+                          letterSpacing: 0.5,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
+              const SizedBox(width: 6),
               const Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(Icons.refresh, size: 12, color: AppTheme.textMuted),
                   SizedBox(width: 3),
                   Text(
-                    'Sinkron: Baru saja / 12 dtk lalu',
+                    '12 dtk lalu',
                     style: TextStyle(
-                      fontSize: 11,
+                      fontSize: 10.5,
                       color: AppTheme.textMuted,
                     ),
                   ),
@@ -373,16 +388,20 @@ class _BerandaScreenState extends State<BerandaScreen> {
           ),
           const SizedBox(height: 4),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                'Lahan Cabai Blok A - Greenhouse 1',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  color: AppTheme.textDark,
+            children: const [
+              Expanded(
+                child: Text(
+                  'Lahan Cabai Blok A - Greenhouse 1',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  style: TextStyle(
+                    fontSize: 14.5,
+                    fontWeight: FontWeight.w700,
+                    color: AppTheme.textDark,
+                  ),
                 ),
               ),
+              SizedBox(width: 4),
               Icon(
                 Icons.keyboard_arrow_down,
                 color: AppTheme.textSecondary,
@@ -487,22 +506,27 @@ class _BerandaScreenState extends State<BerandaScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Row(
-                children: [
-                  Icon(Icons.water_drop, size: 18, color: AppTheme.primaryGreen),
-                  SizedBox(width: 8),
-                  Text(
-                    'Pompa Irigasi Tetes',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                      color: AppTheme.textDark,
+              Expanded(
+                child: Row(
+                  children: const [
+                    Icon(Icons.water_drop, size: 17, color: AppTheme.primaryGreen),
+                    SizedBox(width: 6),
+                    Expanded(
+                      child: Text(
+                        'Pompa Irigasi Tetes',
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 13.5,
+                          fontWeight: FontWeight.w700,
+                          color: AppTheme.textDark,
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
+              const SizedBox(width: 6),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                 decoration: BoxDecoration(
@@ -592,19 +616,22 @@ class _BerandaScreenState extends State<BerandaScreen> {
               children: [
                 Row(
                   children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w700,
-                        color: AppTheme.textDark,
+                    Flexible(
+                      child: Text(
+                        title,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontSize: 12.5,
+                          fontWeight: FontWeight.w700,
+                          color: AppTheme.textDark,
+                        ),
                       ),
                     ),
                     const SizedBox(width: 6),
                     Text(
                       subtitle,
                       style: const TextStyle(
-                        fontSize: 11,
+                        fontSize: 10.5,
                         color: AppTheme.textSecondary,
                       ),
                     ),
