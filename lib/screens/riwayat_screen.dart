@@ -478,17 +478,20 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
               Text(
                 'Statistik Periode 7 Hari',
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 13.5,
                   fontWeight: FontWeight.w700,
                   color: AppTheme.textDark,
                 ),
               ),
               SizedBox(width: 6),
-              Text(
-                'Blok A (Cabai Rawit Merah)',
-                style: TextStyle(
-                  fontSize: 11,
-                  color: AppTheme.textMuted,
+              Flexible(
+                child: Text(
+                  'Blok A',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: AppTheme.textMuted,
+                  ),
                 ),
               ),
             ],

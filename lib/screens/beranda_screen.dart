@@ -186,21 +186,25 @@ class _BerandaScreenState extends State<BerandaScreen> {
 
             // 6. Section: Pemantauan Seluruh Blok Lahan
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'PEMANTAUAN SELURUH BLOK LAHAN',
-                  style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w700,
-                    color: AppTheme.textSecondary,
-                    letterSpacing: 0.8,
+              children: const [
+                Expanded(
+                  child: Text(
+                    'PEMANTAUAN SELURUH BLOK LAHAN',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w700,
+                      color: AppTheme.textSecondary,
+                      letterSpacing: 0.5,
+                    ),
                   ),
                 ),
+                SizedBox(width: 8),
                 Text(
-                  'Total 3 Blok Aktif',
+                  '3 Blok Aktif',
                   style: TextStyle(
-                    fontSize: 11,
+                    fontSize: 10.5,
                     fontWeight: FontWeight.w500,
                     color: AppTheme.textMuted,
                   ),
@@ -432,15 +436,17 @@ class _BerandaScreenState extends State<BerandaScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w700,
-                  color: AppTheme.textSecondary,
-                  letterSpacing: 0.5,
+              Expanded(
+                child: Text(
+                  title,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w700,
+                    color: AppTheme.textSecondary,
+                    letterSpacing: 0.5,
+                  ),
                 ),
               ),
               Icon(icon, size: 18, color: AppTheme.primaryGreen),
@@ -473,15 +479,18 @@ class _BerandaScreenState extends State<BerandaScreen> {
           ),
           const SizedBox(height: 6),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                target,
-                style: const TextStyle(
-                  fontSize: 11,
-                  color: AppTheme.textMuted,
+              Expanded(
+                child: Text(
+                  target,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 11,
+                    color: AppTheme.textMuted,
+                  ),
                 ),
               ),
+              const SizedBox(width: 6),
               StatusBadge(
                 text: badge,
                 type: badgeType,

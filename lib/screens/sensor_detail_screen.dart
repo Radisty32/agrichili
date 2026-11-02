@@ -283,22 +283,27 @@ class _SensorDetailScreenState extends State<SensorDetailScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Row(
-                children: [
-                  Icon(Icons.power_settings_new, size: 16, color: AppTheme.primaryGreen),
-                  SizedBox(width: 6),
-                  Text(
-                    'Relay Pompa Irigasi',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                      color: AppTheme.textDark,
+              Expanded(
+                child: Row(
+                  children: [
+                    Icon(Icons.power_settings_new, size: 16, color: AppTheme.primaryGreen),
+                    SizedBox(width: 6),
+                    Expanded(
+                      child: Text(
+                        'Relay Pompa Irigasi',
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: AppTheme.textDark,
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
+              SizedBox(width: 6),
               StatusBadge(
                 text: 'Siaga',
                 type: StatusType.optimal,

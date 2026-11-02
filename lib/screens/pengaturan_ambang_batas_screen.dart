@@ -475,10 +475,10 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
         ),
         const SizedBox(height: 8),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildBoundaryBox('Batas Bawah', '${values.start.round()} $unit'),
-            _buildBoundaryBox('Batas Atas', '${values.end.round()} $unit'),
+            Expanded(child: _buildBoundaryBox('Batas Bawah', '${values.start.round()} $unit')),
+            const SizedBox(width: 8),
+            Expanded(child: _buildBoundaryBox('Batas Atas', '${values.end.round()} $unit')),
           ],
         ),
         SliderTheme(
@@ -503,7 +503,6 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
 
   Widget _buildBoundaryBox(String label, String value) {
     return Container(
-      width: 140,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         color: const Color(0xFFF8FAFC),
