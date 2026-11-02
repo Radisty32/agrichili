@@ -163,7 +163,7 @@ class _BerandaScreenState extends State<BerandaScreen> {
             ),
             const SizedBox(height: 10),
 
-            // Telemetry Metric Cards (3 metrics)
+            // Telemetry Metric Card
             _buildTelemetryMetricCard(
               title: 'KELEMBABAN TANAH',
               icon: Icons.water_drop_outlined,
@@ -174,32 +174,6 @@ class _BerandaScreenState extends State<BerandaScreen> {
               badgeType: StatusType.optimal,
               progressValue: 68,
               onTap: () => widget.onNavigateTab?.call(1), // Go to Sensor
-            ),
-            const SizedBox(height: 10),
-
-            _buildTelemetryMetricCard(
-              title: 'SUHU MIKROKLIMAT',
-              icon: Icons.thermostat_outlined,
-              value: '27.4',
-              unit: '°C',
-              target: 'Target: 24°C - 30°C',
-              badge: 'Optimal',
-              badgeType: StatusType.optimal,
-              progressValue: 65,
-              onTap: () => widget.onNavigateTab?.call(1),
-            ),
-            const SizedBox(height: 10),
-
-            _buildTelemetryMetricCard(
-              title: 'KELEMBABAN UDARA',
-              icon: Icons.cloud_queue_outlined,
-              value: '75',
-              unit: '%',
-              target: 'Target: 70% - 85%',
-              badge: 'Optimal',
-              badgeType: StatusType.optimal,
-              progressValue: 75,
-              onTap: () => widget.onNavigateTab?.call(1),
             ),
             const SizedBox(height: 14),
 

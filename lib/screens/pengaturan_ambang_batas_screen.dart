@@ -15,8 +15,6 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
 
   // Sliders values
   RangeValues _soilMoistureRange = const RangeValues(60, 80);
-  RangeValues _temperatureRange = const RangeValues(22, 32);
-  RangeValues _humidityRange = const RangeValues(65, 85);
 
   // Automation toggles & counters
   bool _autoIrrigationEnabled = true;
@@ -68,15 +66,12 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
       _selectedPresetIndex = index;
       final preset = _presets[index];
       _soilMoistureRange = RangeValues(preset.defaultSoilMin, preset.defaultSoilMax);
-      _temperatureRange = RangeValues(preset.defaultTempMin, preset.defaultTempMax);
     });
   }
 
   void _resetToDefault() {
     setState(() {
       _soilMoistureRange = const RangeValues(60, 80);
-      _temperatureRange = const RangeValues(22, 32);
-      _humidityRange = const RangeValues(65, 85);
     });
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
@@ -437,32 +432,6 @@ class _PengaturanAmbangBatasScreenState extends State<PengaturanAmbangBatasScree
             min: 0,
             max: 100,
             onChanged: (values) => setState(() => _soilMoistureRange = values),
-          ),
-          const SizedBox(height: 14),
-
-          // Slider 2: Suhu Udara Ambient
-          _buildRangeSliderItem(
-            title: 'Suhu Udara Ambient',
-            icon: Icons.thermostat,
-            targetText: 'Target: 22°C - 32°C',
-            unit: '°C',
-            values: _temperatureRange,
-            min: 15,
-            max: 45,
-            onChanged: (values) => setState(() => _temperatureRange = values),
-          ),
-          const SizedBox(height: 14),
-
-          // Slider 3: Kelembaban Udara (RH)
-          _buildRangeSliderItem(
-            title: 'Kelembaban Udara (RH)',
-            icon: Icons.cloud_queue,
-            targetText: 'Target: 65% - 85%',
-            unit: '%',
-            values: _humidityRange,
-            min: 20,
-            max: 100,
-            onChanged: (values) => setState(() => _humidityRange = values),
           ),
         ],
       ),

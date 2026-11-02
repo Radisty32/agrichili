@@ -3,7 +3,6 @@ import '../theme/app_theme.dart';
 import '../models/telemetry_data.dart';
 import '../widgets/common_widgets.dart';
 import '../widgets/arc_gauge.dart';
-import '../widgets/multi_line_chart.dart';
 
 class SensorDetailScreen extends StatefulWidget {
   final VoidCallback? onBack;
@@ -119,11 +118,7 @@ class _SensorDetailScreenState extends State<SensorDetailScreen> {
             _buildSoilMoistureGaugeCard(),
             const SizedBox(height: 14),
 
-            // 3. 6-Hour Telemetry Trend Multi-line Chart Card
-            _buildTrendChartCard(),
-            const SizedBox(height: 14),
-
-            // 4. Relay Pompa Irigasi Card
+            // 3. Relay Pompa Irigasi Card
             _buildRelayControlCard(),
           ],
         ),
@@ -276,69 +271,6 @@ class _SensorDetailScreenState extends State<SensorDetailScreen> {
           const ArcGauge(value: 68),
         ],
       ),
-    );
-  }
-
-  Widget _buildTrendChartCard() {
-    return AgriCard(
-      padding: const EdgeInsets.all(14),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                'Tren Telemetri 6 Jam',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                  color: AppTheme.textDark,
-                ),
-              ),
-              Row(
-                children: [
-                  _buildLegendDot(const Color(0xFF0284C7), 'Tanah'),
-                  const SizedBox(width: 8),
-                  _buildLegendDot(const Color(0xFFEF4444), 'Suhu'),
-                  const SizedBox(width: 8),
-                  _buildLegendDot(const Color(0xFF10B981), 'Udara'),
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(height: 2),
-          const Text(
-            'Pembaruan berkala interval 2 menit',
-            style: TextStyle(
-              fontSize: 11,
-              color: AppTheme.textMuted,
-            ),
-          ),
-          const SizedBox(height: 12),
-
-          // Multi-line Trend Chart
-          const MultiLineTrendChart(height: 130),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildLegendDot(Color color, String label) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: 6,
-          height: 6,
-          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-        ),
-        const SizedBox(width: 3),
-        Text(
-          label,
-          style: const TextStyle(fontSize: 10, color: AppTheme.textSecondary),
-        ),
-      ],
     );
   }
 
